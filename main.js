@@ -29,8 +29,29 @@ console.log(test);*/
         alert(i);
     }, 500);
 }*/
-for(var i=0; i<3; i++) {// use function factory
+
+/*for(var i=0; i<3; i++) {// use function factory
     (function test(o){
         alert(o);
     })(i)
-}
+}*/
+
+// logical OR and AND
+const test  = 5 || 6; 
+const sample = 0 || 20; 
+
+const sample2 = 0 || false || null; 
+
+console.log(test);
+console.log(sample);
+console.log(sample2);
+
+
+
+
+
+const testand  = 5 && 6;
+const sampleand = 0 && false && null;
+
+console.log(testand); // 6
+console.log(sampleand); // 0
