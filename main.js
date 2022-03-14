@@ -35,7 +35,7 @@ console.log(test);*/
         alert(o);
     })(i)
 }*/
-
+/****************************************************************************************/
 /* logical OR and AND
 const test  = 5 || 6; 
 const sample = 0 || 20; 
@@ -51,24 +51,64 @@ const sampleand = 0 && false && null;
 console.log(testand);
 console.log(sampleand); */
 
-// primitive values & reference type 
+/****************************************************************************************/
+/* primitive values & reference type 
 let sample = 5;
-
 let copySample  = sample;
 
 sample = 10;
 
 console.log('sample:', sample);
-
 console.log('copySample:', copySample);
 
 
 let sampleref = { name: 'Rysh' };
-
 let copySampleref  = sampleref;
 
 sampleref.test = 'test';
 
 console.log('sample:', sampleref);
+console.log('copySample:', copySampleref);*/
 
-console.log('copySample:', copySampleref);
+/****************************************************************************************/
+// shallow copy sample & deep copy sample
+const orig = {
+    test: 'test',
+    userDetails: {
+        address: {
+            province: 'Province',
+            county: 'country'
+        },
+        name: 'myObject'
+    }
+}
+
+const copy = Object.assign({}, orig);
+
+copy.test = 'newTest';
+
+console.log('orig:', orig);
+console.log('copy:', copy);
+
+
+
+const origdeep = {
+    test: 'test',
+    userDetails: {
+        address: {
+            province: 'Province',
+            county: 'country'
+        },
+        name: 'myObject'
+    },
+    myFn: () => {},
+    undef: undefined
+}
+
+const copydeep = JSON.parse(JSON.stringify(origdeep));
+
+copy.userDetails.name = 'newName';
+
+console.log('orig:', origdeep);
+
+console.log('copy:', copydeep);
