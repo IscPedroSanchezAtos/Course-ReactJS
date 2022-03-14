@@ -71,7 +71,7 @@ console.log('sample:', sampleref);
 console.log('copySample:', copySampleref);*/
 
 /****************************************************************************************/
-// shallow copy sample & deep copy sample
+/* shallow copy sample & deep copy using Object
 const orig = {
     test: 'test',
     userDetails: {
@@ -84,7 +84,6 @@ const orig = {
 }
 
 const copy = Object.assign({}, orig);
-
 copy.test = 'newTest';
 
 console.log('orig:', orig);
@@ -106,9 +105,27 @@ const origdeep = {
 }
 
 const copydeep = JSON.parse(JSON.stringify(origdeep));
-
 copy.userDetails.name = 'newName';
 
 console.log('orig:', origdeep);
+console.log('copy:', copydeep);*/
 
+/****************************************************************************************/
+// shallow copy sample & deep copy using array
+const orig = ['avocado', 'apple', { name: 'strawberry' }];
+const copy = orig.slice();
+
+copy.push('guava');
+
+console.log('orig', orig);
+console.log('copy:', copy);
+
+
+
+const origdeep = ['avocado', 'apple', { name: 'strawberry' }];
+const copydeep = JSON.parse(JSON.stringify(orig));
+
+copydeep[2].name = 'coconut';
+
+console.log('orig', origdeep);
 console.log('copy:', copydeep);
