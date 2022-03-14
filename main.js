@@ -29,8 +29,6 @@ console.log(test);*/
         alert(i);
     }, 500);
 }*/
-
-
 for(var i=0; i<3; i++) {// use function factory
     (function test(o){
         alert(o);
