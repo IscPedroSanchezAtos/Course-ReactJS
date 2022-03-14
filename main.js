@@ -36,22 +36,39 @@ console.log(test);*/
     })(i)
 }*/
 
-// logical OR and AND
+/* logical OR and AND
 const test  = 5 || 6; 
 const sample = 0 || 20; 
-
 const sample2 = 0 || false || null; 
 
 console.log(test);
 console.log(sample);
 console.log(sample2);
 
-
-
-
-
 const testand  = 5 && 6;
 const sampleand = 0 && false && null;
 
-console.log(testand); // 6
-console.log(sampleand); // 0
+console.log(testand);
+console.log(sampleand); */
+
+// primitive values & reference type 
+let sample = 5;
+
+let copySample  = sample;
+
+sample = 10;
+
+console.log('sample:', sample);
+
+console.log('copySample:', copySample);
+
+
+let sampleref = { name: 'Rysh' };
+
+let copySampleref  = sampleref;
+
+sampleref.test = 'test';
+
+console.log('sample:', sampleref);
+
+console.log('copySample:', copySampleref);
