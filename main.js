@@ -111,7 +111,7 @@ console.log('orig:', origdeep);
 console.log('copy:', copydeep);*/
 
 /****************************************************************************************/
-// shallow copy sample & deep copy using array
+/* shallow copy sample & deep copy using array
 const orig = ['avocado', 'apple', { name: 'strawberry' }];
 const copy = orig.slice();
 
@@ -128,4 +128,63 @@ const copydeep = JSON.parse(JSON.stringify(orig));
 copydeep[2].name = 'coconut';
 
 console.log('orig', origdeep);
-console.log('copy:', copydeep);
+console.log('copy:', copydeep);*/
+
+/****************************************************************************************/
+// Spread Operator, Rest Parameter, Destructuring
+// rest parameter
+function sum(...thisArgs) {
+    // arguments object cannot use array functions
+    return thisArgs.reduce(function (previous, current) {
+        return previous + current;
+    })
+}
+
+console.log(sum(5, 5, 5));
+
+
+// spread operator using object
+const userDetails = {
+    name: 'Rysh',
+    address: 'Anywhere',
+    sample: {
+        test: 'test'
+    }
+}
+
+const newUserDetails = { ...userDetails, mobileNumber: 123 };
+
+newUserDetails.sample.test = 'newTest';
+
+console.log('userDetails:', userDetails);
+console.log('newUserDetails:', newUserDetails);
+
+// spread operator using array
+const fruits = ['apple', 'avocado'];
+
+const newFruits = [...fruits, 'guava'];
+
+console.log('fruits:', fruits);
+console.log('newFruits:', newFruits);
+
+// destructuring using object
+const userDetailsdest = {
+    name: 'Rysh',
+    address: 'Anywhere',
+    sample: {
+        test: 'test'
+    }
+}
+
+const { name: newNamedest = 'May', ...otherDetails } = userDetailsdest;
+
+console.log(newNamedest);
+console.log(otherDetails);
+
+// destructuring using array
+const fruitsdest = ['avocado', 'guava', 'coconut'];
+
+const [firstFruitdest = 'strawberry', ...otherFruits] = fruitsdest;
+
+console.log(firstFruitdest);
+console.log(otherFruits);
