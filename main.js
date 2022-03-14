@@ -191,7 +191,7 @@ console.log(otherFruits);*/
 
 
 /****************************************************************************************/
-/*  CLass*/
+/*  CLass
 class Shape {
     #privateVariable = 'privateVariable'
     publicVariable = 'publicVariable'
@@ -231,5 +231,34 @@ const mySquare = new Square(5, 10);
 
 console.log(mySquare.getArea());
 console.log(mySquare.getParentClassArea());
-console.log(mySquare.getPrivateData());
+console.log(mySquare.getPrivateData());*/
 
+
+/****************************************************************************************/
+/*This Object + Arrow Function - Hands On*/
+class Printer {
+    name = "I am Printer Class"
+
+    printName() {
+        console.log('printName:', this.name);
+    }
+
+    printNameArrowFn = () => {// Arrow Function
+        console.log('printNameArrowFn:', this.name);
+    }
+}
+
+console.log(this) // window object
+
+const myPrinter = new Printer();
+myPrinter.printName();
+myPrinter.printNameArrowFn();
+
+const customPrinter = {
+    name: 'I am Custom Printer',
+    printName: myPrinter.printName,
+    pritNameArrowFn: myPrinter.printNameArrowFn,
+};
+
+customPrinter.printName();
+customPrinter.pritNameArrowFn();
