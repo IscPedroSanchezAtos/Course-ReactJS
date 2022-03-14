@@ -131,7 +131,7 @@ console.log('orig', origdeep);
 console.log('copy:', copydeep);*/
 
 /****************************************************************************************/
-// Spread Operator, Rest Parameter, Destructuring
+/* Spread Operator, Rest Parameter, Destructuring
 // rest parameter
 function sum(...thisArgs) {
     // arguments object cannot use array functions
@@ -187,4 +187,49 @@ const fruitsdest = ['avocado', 'guava', 'coconut'];
 const [firstFruitdest = 'strawberry', ...otherFruits] = fruitsdest;
 
 console.log(firstFruitdest);
-console.log(otherFruits);
+console.log(otherFruits);*/
+
+
+/****************************************************************************************/
+/*  CLass*/
+class Shape {
+    #privateVariable = 'privateVariable'
+    publicVariable = 'publicVariable'
+    static staticVariable = 'staticVariable'
+    
+    constructor(height, width) {
+        this.height = height;
+        this.width = width;
+    }
+
+    getArea() {
+        return 'not implemented';
+    }
+
+    getPrivateData() {
+        return this.#privateVariable;
+    }
+}
+
+class Square extends Shape {
+    getArea() {
+        return this.height * this.width;
+    }
+
+    getParentClassArea() {
+        super.getArea();
+    }
+}
+
+const myShape = new Shape(5, 10);
+
+console.log(myShape.width);
+//console.log(myShape.#privateVariable);  Private field '#privateVariable' must be declared in an enclosing class
+console.log(Shape.staticVariable);
+
+const mySquare = new Square(5, 10);
+
+console.log(mySquare.getArea());
+console.log(mySquare.getParentClassArea());
+console.log(mySquare.getPrivateData());
+
