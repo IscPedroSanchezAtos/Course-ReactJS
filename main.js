@@ -265,7 +265,7 @@ customPrinter.pritNameArrowFn();*/
 
 
 /****************************************************************************************/
-/*Promises & Async+Await*/
+/*Promises & Async+Await
 function calculateSquareArea() {
     return new Promise(function (resolve, reject) {
         setTimeout(() => {
@@ -318,4 +318,27 @@ Promise.all(myPromises)
     .then(onFulFilled)
     .catch((reason) => {        // catch also catches the error in onFulFilled
         console.log('catch:', reason);
-    });;
+    });*/
+//Async
+    let myNumber = 5;
+
+function changeNumber () {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            myNumber = 10;
+            resolve(myNumber);
+        }, 500);
+    })
+}
+
+function startChange() {
+    changeNumber();
+    console.log(myNumber);
+}
+
+startChange();
+
+
+/****************************************************************************************/
+/*Promises & Async+Await*/
+
