@@ -7,10 +7,14 @@ import AllProductsPage from './containers/AllProductsPage';
 import CheckoutPage from './containers/CheckoutPage';
 import { ROUTE } from './constants/route';
 import { HeaderNavigation } from './components/HeaderNavigation';
-
+import { createStore } from 'redux';
+import { rootReducer } from './store/rootReducer';
+import { Provider } from 'react-redux';
+const store = createStore(rootReducer);
 function App() {
   return (
-    <BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
       <div className='app-container'>
         <HeaderNavigation />
         <Switch>
@@ -21,6 +25,7 @@ function App() {
         </Switch>
       </div>
     </BrowserRouter>
+    </Provider>
   );
 }
 
