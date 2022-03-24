@@ -7,10 +7,21 @@ import AllProductsPage from './containers/AllProductsPage';
 import CheckoutPage from './containers/CheckoutPage';
 import { ROUTE } from './constants/route';
 import { HeaderNavigation } from './components/HeaderNavigation';
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import { rootReducer } from './store/rootReducer';
 import { Provider } from 'react-redux';
-const store = createStore(rootReducer);
+import createSagaMiddleware from 'redux-saga';
+import { watchProductDetailsSaga } from './store/sagas/productDetailsSaga';
+import ProductDetailsAction from './store/actions/productDetailAction';
+import startRootSaga from './store/rootSaga';
+
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
+
+sagaMiddleware.run(startRootSaga);
+
+store.dispatch({type: ProductDetailsAction.FETCH_PRODUCTS_DETAILS});
+(window as any).shopspree = store;
 function App() {
   return (
     <Provider store={store}>
